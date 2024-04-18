@@ -1,4 +1,4 @@
-package Array;
+package divideAndConqure;
 
 import java.util.Scanner;
 

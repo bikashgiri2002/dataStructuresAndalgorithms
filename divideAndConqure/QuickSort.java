@@ -1,4 +1,4 @@
-package Array;
+package divideAndConqure;
 
 public class QuickSort {
     public static void printArr(int arr[]){
@@ -10,10 +10,12 @@ public class QuickSort {
         int pivot=arr[ei];
         int i=si-1;
         for (int j=si;j<ei;j++){
-            i++;
-            int temp=arr[i];
-            arr[i]=arr[j];
-            arr[j]=temp;
+            if(arr[j]<=pivot) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
         }
         i++;
         int temp=arr[i];
