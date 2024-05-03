@@ -21,6 +21,14 @@ public class BasicLInkedList {
          System.out.print(head.data+", ");
          display(head.next);
      }
+     public static void insertionAtEnd(Node head,int val){
+         Node temp=new Node(val);
+         Node  tempIndex=head;
+         while(tempIndex.next != null){
+             tempIndex=tempIndex.next;
+         }
+         tempIndex.next=temp;
+     }
 
 
     public static void main(String[] args) {
@@ -45,6 +53,9 @@ public class BasicLInkedList {
         display(head);
         System.out.println();
         //display using recursion
+        display(head);
+        System.out.println();
+        insertionAtEnd(head,70);
         display(head);
     }
 }

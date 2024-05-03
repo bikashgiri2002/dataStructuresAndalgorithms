@@ -15,6 +15,7 @@ public class ImplementationLinkList {
     static class linkedList{
         Node head=null;
         Node tail=null;
+        int size =0;
         void insertAtEnd(int n){
             Node temp=new Node(n);
             if (head == null){
@@ -24,6 +25,7 @@ public class ImplementationLinkList {
                 tail.next=temp;
             }
             tail=temp;
+           size++;
         }
         void display(){
             Node temp=head;
@@ -44,18 +46,19 @@ public class ImplementationLinkList {
             Node temp=new Node(n);
             temp.next=head;
             head=temp;
+            size++;
         }
-        int size(){
-            Node temp=head;
-            int count =0;
-            while(temp != null){
-               count++;
-               temp=temp.next;
-            }
-            return count;
-        }
+//        int size(){
+//            Node temp=head;
+//            int count =0;
+//            while(temp != null){
+//               count++;
+//               temp=temp.next;
+//            }
+//            return count;
+//        }
         void insertAtPosition(int index,int data){
-            if (index==size()-1){
+            if (index==size-1){
                 insertAtEnd(data);
                 return;
             }
@@ -70,6 +73,38 @@ public class ImplementationLinkList {
             }
             tempInsert.next=temp.next;
             temp.next=tempInsert;
+            size++;
+        }
+        int get(int index){
+            if (index==0){
+                return head.data;
+            } else if (index == size-1) {
+                return tail.data;
+            }else if(index>=size){
+                return -1;
+            }
+            Node temp=head;
+            for (int i=0; i<index;i++){
+                temp=temp.next;
+            }
+            return temp.data;
+        }
+        void deleteAtIndex(int index){
+            if (index == 0){
+                head=head.next;
+                size--;
+                return;
+            }
+            else if (index >= size){
+                System.out.println("Index is out of bound");
+                return;
+            }
+            Node temp=head;
+            for(int i=0;i<index-1;i++){
+                temp=temp.next;
+            }
+            temp.next=temp.next.next;
+            size--;
         }
     }
 
@@ -81,12 +116,24 @@ public class ImplementationLinkList {
         list.insertAtEnd(9);
         list.display();
         list.display();
-        System.out.println("Size "+list.size());
+        System.out.println("Size "+list.size);
         list.insertAtBeginning(1);
         list.display();
-        System.out.println("Size "+list.size());
+        System.out.println("Size "+list.size);
         list.insertAtPosition(4,15);
         list.display();
-        System.out.println("Size "+list.size());
+        System.out.println("Size "+list.size);
+        System.out.println(list.get(5));
+        list.display();
+        list.deleteAtIndex(4);
+        list.display();
+        System.out.println("Size "+list.size);
+        list.deleteAtIndex(0);
+        list.display();
+        System.out.println("Size "+list.size);
+        list.deleteAtIndex(3);
+        list.display();
+        System.out.println("Size "+list.size);
+        list.deleteAtIndex(3);
     }
 }
