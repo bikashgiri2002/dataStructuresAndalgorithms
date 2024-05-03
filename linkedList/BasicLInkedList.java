@@ -1,11 +1,17 @@
 package linkedList;
 
+import java.util.Scanner;
+
 public class BasicLInkedList {
      static class Node{
          int data;
          Node next;
          Node(int data){
              this.data=data;
+         }
+         Node(){
+             this.data=0;
+             this.next=null;
          }
      }
      public static void display(Node head){
@@ -18,6 +24,7 @@ public class BasicLInkedList {
 
 
     public static void main(String[] args) {
+         Scanner sc =new Scanner(System.in);
         Node head=new Node(2);
         System.out.println(head.next);
         Node b=new Node(3);
@@ -35,11 +42,9 @@ public class BasicLInkedList {
             System.out.print(temp.data+", ");
             temp=temp.next;
         }
+        display(head);
         System.out.println();
         //display using recursion
         display(head);
-        System.out.println();
-        display(head);
-
     }
 }
