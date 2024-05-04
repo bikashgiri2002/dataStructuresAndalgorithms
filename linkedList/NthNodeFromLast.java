@@ -36,17 +36,23 @@ public class NthNodeFromLast {
         return slow;
     }
     //delete nth node from last
-    static void deleteNthFromLast(Node head,int n){
+    static Node deleteNthFromLast(Node head,int n){
         Node slow=head;
         Node fast=head;
         for (int i=0; i<n;i++){
             fast=fast.next;
         }
+        if(fast == null){
+            head=head.next;
+            return head;
+        }
         while(fast.next != null){
             slow=slow.next;
             fast=fast.next;
         }
+
         slow.next=fast;
+        return head;
     }
     //display function
     static void display(Node head){
@@ -82,7 +88,9 @@ public class NthNodeFromLast {
         System.out.println(nthNodeFromLast(head,n).data);
         //1 traversing
         System.out.println(nthFromLast(head,n).data);
-        deleteNthFromLast(head,n);
+        head=deleteNthFromLast(head,n);
+        display(head);
+        head=deleteNthFromLast(head,6);
         display(head);
     }
 }
