@@ -42,6 +42,7 @@ public class NthNodeFromLast {
         for (int i=0; i<n;i++){
             fast=fast.next;
         }
+        //condition to delete 1st Node
         if(fast == null){
             head=head.next;
             return head;
