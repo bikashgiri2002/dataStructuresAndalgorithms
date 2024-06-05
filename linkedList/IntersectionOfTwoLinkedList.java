@@ -29,6 +29,36 @@ public class IntersectionOfTwoLinkedList {
         }
         return null;
     }
+    static Node findByLength(Node head1, Node head2){
+        Node temp1 = head1;
+        Node temp2 = head2;
+        int length1 = 0 , length2 = 0;
+        while(temp1 != null){
+            length1++;
+            temp1 = temp1.next;
+        }
+        while (temp2 != null){
+            length2++;
+            temp2 = temp2.next;
+        }
+        temp1 = head1;
+        temp2 = head2;
+        if (length1 >= length2){
+            for (int i = 0; i< length1 - length2 ; i++){
+                temp1=temp1.next;
+            }
+        }
+        else{
+            for (int i =0 ; i< length2 - length1; i++){
+                temp2 = temp2.next;
+            }
+        }
+        while(temp1 != temp2){
+            temp1 = temp1.next;
+            temp2 = temp2.next;
+        }
+        return temp1;
+    }
 
     public static void main(String[] args) {
         Node head1=new Node(100);
@@ -53,5 +83,11 @@ public class IntersectionOfTwoLinkedList {
             return;
         }
         System.out.println(intersection.data+"\n"+intersection.next);
+        Node intersection1 = findByLength(head1,head2);
+        if (intersection1==null){
+            System.out.println("no intersection");
+            return;
+       }
+        System.out.println(intersection1.data+"\n"+intersection1.next);
     }
 }
