@@ -14,6 +14,7 @@ public class IntersectionOfTwoLinkedList {
             this.next = null;
         }
     }
+    // my own solution time complexity O(n^2)
     static Node findIntersection(Node head1,Node head2){
         Node temp1=head1;
         while(temp1.next != null){
@@ -29,6 +30,7 @@ public class IntersectionOfTwoLinkedList {
         }
         return null;
     }
+    //class solution time complexity O(n)
     static Node findByLength(Node head1, Node head2){
         Node temp1 = head1;
         Node temp2 = head2;
