@@ -37,6 +37,15 @@ public class MidOfLinkedList {
         }
         return slow;
     }
+    static Node leftMid(Node head){
+        Node slow = head;
+        Node fast = head;
+        while (fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
 
     public static void main(String[] args) {
         Node head=new Node(2);
@@ -52,5 +61,6 @@ public class MidOfLinkedList {
         e.next=f;
         System.out.println(findMidTwoIteration(head).data);
         System.out.println(findMidOneIteration(head).data);
+        System.out.println(leftMid(head).data);
     }
 }
