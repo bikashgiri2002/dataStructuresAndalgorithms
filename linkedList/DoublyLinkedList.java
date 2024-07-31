@@ -11,7 +11,17 @@ public class DoublyLinkedList {
             prev = null;
         }
     }
-   public static void display(DoublyNode head){
+   public static class DoubleLinkedList{
+       DoublyNode head = null;
+       DoublyNode tail = null;
+       int size = 0;
+
+       public static void addAtEnd(int data , int index ){
+
+       }
+
+   }
+    public static void display(DoublyNode head){
         DoublyNode temp = head;
         System.out.print("[ ");
         while (temp != null) {
