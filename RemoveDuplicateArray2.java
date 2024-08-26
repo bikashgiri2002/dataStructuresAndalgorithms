@@ -1,30 +1,25 @@
 import java.util.Arrays;
 
 public class RemoveDuplicateArray2 {
-    public static int removeElement(int[] arr){
-        int result = 0;
-        int count = 1;
-        for(int i = 1; i < arr.length; i++){
-            if(count > 2){
-                for(int j = i; j < arr.length-1; j++){
-                    arr[j] = arr[j+1];
+    public static int removeElement(int[] nums){
+                if(nums.length <= 1){
+                    return nums.length;
                 }
-                count--;
-            }
-            if(arr[i] == arr[i-1]){
-                count++;
-                result++;
-            }else{
-                count = 1;
-                result++;
-            }
-        }
-        return result;
+                int j = 2;
+                for(int i = 1; i < nums.length; i++){
+                    if(nums[i] != nums[j-2]){
+                        nums[j] = nums[i];
+                        j++;
+                    }
+                }
+                return j;
     }
     public static void main(String[] args) {
         int arr[] = {1,1,1,2,2,3};
         System.out.println(Arrays.toString(arr));
         int k = removeElement(arr);
-        System.out.println((Arrays.toString(arr)).substring(0,k));
+        for(int i = 0; i < k; i++){
+            System.out.print(arr[i]+", ");
+        }
     }
 }
