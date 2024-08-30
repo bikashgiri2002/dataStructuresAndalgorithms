@@ -7,6 +7,7 @@ public class StackBasic {
         Stack<Integer> sk = new Stack<>();
         sk.push(10);
         sk.push(20);
+        System.out.println(sk.peek());
         System.out.println(sk);
     }
 }
