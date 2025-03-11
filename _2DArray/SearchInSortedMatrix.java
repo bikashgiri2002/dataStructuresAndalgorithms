@@ -1,6 +1,7 @@
 package _2DArray;
 
 public class SearchInSortedMatrix {
+    // Time complexity: O(m+n) where m is number of rows and n is number of columns.
     public static boolean search(int key,int matrix[][]){
         int row=0;
         int col= matrix[0].length-1;
